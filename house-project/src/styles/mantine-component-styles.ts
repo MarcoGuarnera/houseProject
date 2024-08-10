@@ -1,0 +1,44 @@
+// Order suggested by mantine
+import "@mantine/core/styles/global.layer.css";
+import "@mantine/core/styles/ScrollArea.layer.css";
+import "@mantine/core/styles/UnstyledButton.layer.css";
+import "@mantine/core/styles/VisuallyHidden.layer.css";
+import "@mantine/core/styles/Paper.layer.css";
+import "@mantine/core/styles/Popover.layer.css";
+import "@mantine/core/styles/CloseButton.layer.css";
+import "@mantine/core/styles/Group.layer.css";
+import "@mantine/core/styles/Loader.layer.css";
+import "@mantine/core/styles/Overlay.layer.css";
+import "@mantine/core/styles/ModalBase.layer.css";
+import "@mantine/core/styles/Input.layer.css";
+import "@mantine/core/styles/Flex.layer.css";
+
+// Rest of the components can be listed below
+import "@mantine/core/styles/Alert.layer.css";
+import "@mantine/core/styles/AspectRatio.layer.css";
+import "@mantine/core/styles/BackgroundImage.layer.css";
+import "@mantine/core/styles/Center.layer.css";
+import "@mantine/core/styles/Container.layer.css";
+import "@mantine/core/styles/Dialog.layer.css";
+import "@mantine/core/styles/Grid.layer.css";
+import "@mantine/core/styles/Image.layer.css";
+import "@mantine/core/styles/Stack.layer.css";
+import "@mantine/core/styles/Table.layer.css";
+import "@mantine/core/styles/TypographyStylesProvider.layer.css";
+import "@mantine/core/styles/Text.layer.css";
+import "@mantine/core/styles/Title.layer.css";
+import "@mantine/core/styles/Card.layer.css";
+import "@mantine/core/styles/Button.layer.css";
+import "@mantine/core/styles/Accordion.layer.css";
+import "@mantine/core/styles/ThemeIcon.layer.css";
+import "@mantine/core/styles/List.layer.css";
+import "@mantine/core/styles/Badge.layer.css";
+import "@mantine/core/styles/Divider.layer.css";
+import "@mantine/core/styles/Checkbox.layer.css";
+import "@mantine/core/styles/Modal.layer.css";
+import "@mantine/core/styles/Drawer.layer.css";
+import "@mantine/core/styles/Combobox.layer.css";
+import "@mantine/core/styles/InlineInput.layer.css";
+import "@mantine/core/styles/Radio.layer.css";
+import "@mantine/core/styles/NavLink.layer.css";
+import "@mantine/carousel/styles.css";
