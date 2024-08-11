@@ -1,0 +1,60 @@
+.carousel {
+  @mixin hover {
+    .carouselControls {
+      opacity: 1;
+    }
+  }
+}
+
+.carouselControls {
+  transition: opacity 150ms ease;
+  opacity: 0;
+}
+
+.carouselIndicator {
+  width: rem(4px);
+  height: rem(4px);
+  transition: width 250ms ease;
+
+  &[data-active] {
+    width: rem(16px);
+  }
+}
+
+.imageOverlayContainer {
+  position: relative;
+  cursor: pointer;
+}
+
+.slide {
+  height: 600px;
+}
+
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Opacity layer */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.overlayText {
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: text-decoration 0.3s ease;
+}
+
+.imageOverlayContainer:hover .imageOverlay {
+  background: rgba(0, 0, 0, 0.3); /* Reduce opacity on hover */
+}
+
+.imageOverlayContainer:hover .overlayText {
+  text-decoration: underline; /* Underline text on hover */
+}

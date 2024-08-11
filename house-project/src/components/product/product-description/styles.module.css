@@ -1,0 +1,20 @@
+.text {
+  margin-top: 20px;
+}
+
+.fade_out_light {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px; /* Adjust the height of the gradient fade */
+    background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+  }
+}
+.fade_out_dark {
+  position: relative;
+}
