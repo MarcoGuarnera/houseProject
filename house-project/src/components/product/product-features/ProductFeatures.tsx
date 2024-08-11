@@ -1,75 +1,127 @@
-import { Button, Container, Title, useMantineColorScheme } from "@mantine/core";
-import { useEffect, useRef, useState } from "react";
-import ReactMarkdown from "react-markdown";
+import { Button, Container, Grid, Group, Text, Title } from "@mantine/core";
 import styles from "./styles.module.css";
+import {
+  IconBath,
+  IconBed,
+  IconBolt,
+  IconBuildings,
+  IconFlame,
+  IconHomeExclamation,
+  IconParkingCircle,
+  IconRuler,
+  IconUsersGroup,
+  IconWall,
+} from "@tabler/icons-react";
+import { useContext } from "react";
+import { AppContext } from "@/providers/AppContextProvider";
 
-interface ProductDescriptionProps {
-  description: string;
-}
+export const ProductFeatures = () => {
+  const { houseData } = useContext(AppContext);
+  if (!houseData) return;
 
-export const ProductFeatures = ({ description }: ProductDescriptionProps) => {
-  const textRef = useRef<HTMLDivElement>(null);
-  const [isTruncated, setIsTruncated] = useState(true);
-  const [isOverflowing, setIsOverflowing] = useState(false);
-  const [lineHeight, setLineHeight] = useState<number>(0);
-  const { colorScheme } = useMantineColorScheme();
-
-  // count the number of lines and handle the showMore button logic
-  useEffect(() => {
-    const element = textRef.current;
-    if (element) {
-      const computedStyle = window.getComputedStyle(element);
-      const calculatedLineHeight = parseFloat(computedStyle.lineHeight);
-      setLineHeight(calculatedLineHeight);
-      const numberOfLines = element.clientHeight / calculatedLineHeight;
-
-      if (numberOfLines > 10) {
-        setIsOverflowing(true);
-      }
-    }
-  }, [description]);
-
-  const toggleTruncate = () => {
-    setIsTruncated(!isTruncated);
-  };
-  if (!description) return;
-
-  // Renders the right class based on the theme of the page
-  const fadeOutClassName = (): string => {
-    if (isTruncated && isOverflowing) {
-      return colorScheme === "dark"
-        ? styles.fade_out_dark
-        : styles.fade_out_light;
-    }
-    return "";
-  };
-
+  //TODO: map an array with the icons, houseData field and label to refactor the code
   return (
-    <Container size="xl">
-      <Title order={2}>Omschrijving</Title>
-      <div>
-        <div
-          ref={textRef}
-          className={fadeOutClassName()}
-          style={{
-            maxHeight:
-              isTruncated && isOverflowing ? `${lineHeight * 10}px` : "none",
-            overflow: "hidden",
-          }}
-        >
-          <ReactMarkdown>{description}</ReactMarkdown>
-        </div>
-        {isOverflowing && (
-          <Button
-            variant="subtle"
-            fullWidth
-            className={styles.button}
-            onClick={toggleTruncate}
-          >
-            {isTruncated ? "Show More" : "Show Less"}
-          </Button>
-        )}
-      </div>
+    <Container className={styles.container} size="xl">
+      <Title order={2}>Kenmerken</Title>
+      <Grid justify="space-between">
+        <Grid.Col span={{ base: 12, xs: 6 }}>
+          <Group mt="lg">
+            <IconBuildings />
+            <div>
+              <Text fw={500}>Typology</Text>
+              <Text fz="xs" c="dimmed">
+                {houseData?.objectType ?? "N/A"}
+              </Text>
+            </div>
+          </Group>
+          <Group mt="lg">
+            <IconRuler />
+            <div>
+              <Text fw={500}>Wonen</Text>
+              <Text fz="xs" c="dimmed">
+                {houseData?.livingArea ?? "N/A"} m²
+              </Text>
+            </div>
+          </Group>
+          <Group mt="lg">
+            <IconBed />
+            <div>
+              <Text fw={500}>Slaapkamers</Text>
+              <Text fz="xs" c="dimmed">
+                {houseData?.bedrooms ?? houseData.rooms}
+              </Text>
+            </div>
+          </Group>
+          <Group mt="lg">
+            <IconBath />
+            <div>
+              <Text fw={500}>Bathrooms</Text>
+              <Text fz="xs" c="dimmed">
+                {houseData?.bathrooms ?? "N/A"}
+              </Text>
+            </div>
+          </Group>
+          <Group mt="lg">
+            <IconFlame />
+            <div>
+              <Text fw={500}>Heating</Text>
+              <Text fz="xs" c="dimmed">
+                {houseData?.heating ?? "N/A"}
+              </Text>
+            </div>
+          </Group>
+        </Grid.Col>
+        <Grid.Col span={{ base: 12, xs: 6 }}>
+          <Group mt="lg">
+            <IconHomeExclamation />
+            <div>
+              <Text fw={500}>Construction Year</Text>
+              <Text fz="xs" c="dimmed">
+                {houseData?.constructionYear ?? "N/A"}
+              </Text>
+            </div>
+          </Group>
+          <Group mt="lg">
+            <IconUsersGroup />
+            <div>
+              <Text fw={500}>VVE</Text>
+              <Text fz="xs" c="dimmed">
+                {houseData?.vveContribution ?? "N/A"}
+              </Text>
+            </div>
+          </Group>
+          <Group mt="lg">
+            <IconWall />
+            <div>
+              <Text fw={500}>Insulation</Text>
+              <Text fz="xs" c="dimmed">
+                {houseData?.insulation ?? "N/A"}
+              </Text>
+            </div>
+          </Group>
+          <Group mt="lg">
+            <IconParkingCircle />
+            <div>
+              <Text fw={500}>Parking</Text>
+              <Text fz="xs" c="dimmed">
+                {houseData?.parkingType ?? "N/A"}
+              </Text>
+            </div>
+          </Group>
+          <Group mt="lg">
+            <IconBolt />
+            <div>
+              <Text fw={500}>Energy Label</Text>
+              <Text fz="xs" c="dimmed">
+                {houseData?.energyLabel.Label ?? "N/A"}
+              </Text>
+            </div>
+          </Group>
+        </Grid.Col>
+      </Grid>
+      <Button variant="subtle" fullWidth className={styles.button}>
+        Show ore
+      </Button>
     </Container>
   );
 };

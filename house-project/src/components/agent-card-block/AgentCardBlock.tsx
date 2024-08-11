@@ -1,12 +1,4 @@
-import {
-  Card,
-  Text,
-  Button,
-  TextInput,
-  Textarea,
-  Title,
-  rem,
-} from "@mantine/core";
+import { Card, Button, TextInput, Textarea, Title, rem } from "@mantine/core";
 import { useState } from "react";
 import styles from "./styles.module.css";
 import { IconCalendar, IconPhone } from "@tabler/icons-react";

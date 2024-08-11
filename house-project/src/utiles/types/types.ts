@@ -242,6 +242,7 @@ export interface MappedHouseProduct {
   rooms: number;
   bedrooms: number;
   floors: string;
+  objectType: string;
   address: string;
   vveContribution: any;
   constructionYear: string;

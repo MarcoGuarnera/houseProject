@@ -8,6 +8,7 @@ import { ProductFeatures } from "./product-features/ProductFeatures";
 import { AppContext } from "@/providers/AppContextProvider";
 import { useContext, useMemo } from "react";
 import dynamic from "next/dynamic";
+import styles from "./styles.module.css";
 
 export default function ProductPage() {
   const MyAwesomeMap = useMemo(
@@ -35,8 +36,9 @@ export default function ProductPage() {
             <div id="description">
               <ProductDescription description={houseData?.description} />
             </div>
-            <div id="features">
-              <ProductFeatures description={houseData?.description} />
+            <div className={styles.container} id="features">
+              <Divider my="xs" />
+              <ProductFeatures />
             </div>
             <div id="map">
               <Divider my="xs" />

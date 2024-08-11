@@ -1,57 +1,62 @@
 // components/Header.tsx
-import { Group, Button, Tabs, Anchor, Container } from "@mantine/core";
-import { useMediaQuery } from "@mantine/hooks";
-import styles from "./styles.module.css";
+import { useState } from "react";
+import { Group, Anchor, Container, Box, Image } from "@mantine/core";
 import { ColorSchemeToggle } from "../ColorSchemeToggle";
 import Link from "next/link";
+import styles from "./styles.module.css";
 
-export function Header() {
+export const Header = () => {
+  const [active, setActive] = useState(0);
   const logo = {
     url: "/logo.svg",
     description: "logo",
   };
-  const isMobile = useMediaQuery("(max-width: 768px)");
+
+  const mainLinks = [
+    { link: "pictures", label: "Pictures" },
+    { link: "summary", label: "Summary" },
+    { link: "description", label: "Description" },
+    { link: "features", label: "Features" },
+    { link: "map", label: "Map" },
+    { link: "mortgage", label: "Mortgage" },
+  ];
 
   const handleScrollToSection = (sectionId: string) => {
     if (!sectionId) return;
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
   };
+
+  const mainItems = mainLinks.map((item, index) => (
+    <Anchor
+      key={item.label}
+      className={styles.mainLink}
+      data-active={index === active || undefined}
+      onClick={(event) => {
+        handleScrollToSection(item.link);
+        event.preventDefault();
+        setActive(index);
+      }}
+    >
+      {item.label}
+    </Anchor>
+  ));
   return (
-    //TODO: METTERE TUTTO DENTRO UN ARRAY E RENDERIZZARE LE TAB CON ID E TITLE
     <header className={styles.header}>
-      <Link href="/">
-        <img src={logo.url} alt={logo.description} className={styles.logo} />
-      </Link>
-      <Container size="md">
-        <ColorSchemeToggle></ColorSchemeToggle>
-        <Tabs
-          classNames={{
-            root: styles.tabs,
-            list: styles.tabsList,
-            tab: styles.tab,
-          }}
-          variant="outline"
-          defaultValue="pictures"
-        >
-          <Tabs.List>
-            <Anchor href="#pictures" data-testid="link-pictures">
-              Pictures
-            </Anchor>
-            <Anchor href="#description" data-testid="link-description">
-              Description
-            </Anchor>
-            <Anchor href="#specifics" data-testid="link-specifics">
-              Specifics
-            </Anchor>
-            <Anchor href="#map" data-testid="link-map">
-              Map
-            </Anchor>
-            <Anchor href="#mortgage" data-testid="link-mortgage">
-              Mortgage
-            </Anchor>
-          </Tabs.List>
-        </Tabs>
+      <Container size="xl" className={styles.inner}>
+        <Link href="/">
+          <Image
+            src={logo.url}
+            alt={logo.description}
+            className={styles.logo}
+          />
+        </Link>
+        {/* <ColorSchemeToggle></ColorSchemeToggle> */}
+        <Box className={styles.links}>
+          <Group gap={0} justify="flex-end" className={styles.mainLinks}>
+            {mainItems}
+          </Group>
+        </Box>
       </Container>
     </header>
   );
-}
+};

@@ -20,6 +20,7 @@ export const mapHouseProduct = (house: HouseProduct): MappedHouseProduct => {
     insulation: house.Isolatie, // isolazione
     summary: house.KenmerkenKort, // importante summary
     location: house.Ligging, // posizione
+    objectType: house.ObjectType,
     realtor: {
       name: house.Makelaar,
       id: house.MakelaarId,
