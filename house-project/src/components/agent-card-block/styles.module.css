@@ -1,0 +1,10 @@
+.card {
+  position: sticky;
+  top: 60px;
+}
+.button {
+  width: 200px;
+}
+.date {
+  text-align: center !important;
+}

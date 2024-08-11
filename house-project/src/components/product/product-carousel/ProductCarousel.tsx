@@ -1,7 +1,6 @@
 import { Card, Grid, Image, Modal } from "@mantine/core";
 import { Carousel } from "@mantine/carousel";
 import { useContext, useEffect, useState } from "react";
-import { AppContext } from "@/providers/AppContextProvider";
 import styles from "./styles.module.css";
 import { useMediaQuery } from "@mantine/hooks";
 import { ModalContext } from "@/providers/ModalContexProvider";
@@ -12,7 +11,6 @@ interface ProductCarouselProps {
 }
 
 export const ProductCarousel = ({ images }: ProductCarouselProps) => {
-  // const { houseData } = useContext(AppContext);
   const { modalOpened, setModalOpened } = useContext(ModalContext);
   const [activeSlide, setActiveSlide] = useState(0);
   const router = useRouter();
@@ -27,7 +25,6 @@ export const ProductCarousel = ({ images }: ProductCarouselProps) => {
     }
   }, [router.query.image]);
 
-  //TODO: mettere immagini di default
   if (!images) return;
 
   const handleImageClick = (index: number) => {

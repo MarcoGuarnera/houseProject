@@ -1,25 +1,37 @@
-import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
+"use client";
 
-const containerStyle = {
-  width: "100%",
-  height: "400px",
-};
+// IMPORTANT: the order matters
+import "leaflet/dist/leaflet.css";
+import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.webpack.css";
+import "leaflet-defaulticon-compatibility";
+import { MapContainer, Marker, TileLayer } from "react-leaflet";
+import { Container } from "@mantine/core";
+import styles from "./styles.module.css";
 
-const center = {
-  lat: -3.745,
-  lng: -38.523,
-};
+interface MapBlockProps {
+  coordinates: {
+    lat: number;
+    lng: number;
+  };
+}
 
-const MapBlock = () => {
+export default function ({ coordinates }: MapBlockProps) {
+  if (!coordinates) return;
+
   return (
-    <LoadScript
-      googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY as string}
-    >
-      <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10}>
-        <Marker position={center} />
-      </GoogleMap>
-    </LoadScript>
+    <Container size="xl">
+      <MapContainer
+        center={[coordinates.lat, coordinates.lng]}
+        zoom={11}
+        scrollWheelZoom={true}
+        className={styles.mapContainer}
+      >
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        <Marker position={[coordinates.lat, coordinates.lng]}></Marker>
+      </MapContainer>
+    </Container>
   );
-};
-
-export default MapBlock;
+}

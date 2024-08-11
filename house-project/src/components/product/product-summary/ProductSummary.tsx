@@ -37,7 +37,7 @@ export const ProductSummary = () => {
         houseData.price.KoopAbbreviation
       } `;
     } else if (houseData?.price.Huurprijs) {
-      return `${formattedPrice(houseData.price.Huurprijs)} `;
+      return `${formattedPrice(houseData.price.Huurprijs)} p/m `;
     }
     return "";
   };

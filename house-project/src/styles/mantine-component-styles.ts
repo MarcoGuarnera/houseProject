@@ -42,3 +42,4 @@ import "@mantine/core/styles/InlineInput.layer.css";
 import "@mantine/core/styles/Radio.layer.css";
 import "@mantine/core/styles/NavLink.layer.css";
 import "@mantine/carousel/styles.css";
+import "@mantine/dates/styles.css";

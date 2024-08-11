@@ -1,16 +1,23 @@
-// components/MainPage.tsx
-import { Grid, Divider, Container, Group } from "@mantine/core";
+import { Grid, Container, Group, Divider } from "@mantine/core";
 import { ProductCarousel } from "./product-carousel/ProductCarousel";
-import MapBlock from "../map-block/MapBlock";
 import MortgageBlock from "../mortgage-block/MortgageBlock";
 import { AgentCardBlock } from "../agent-card-block/AgentCardBlock";
 import { ProductSummary } from "./product-summary/ProductSummary";
 import { ProductDescription } from "./product-description/ProductDescription";
 import { ProductFeatures } from "./product-features/ProductFeatures";
 import { AppContext } from "@/providers/AppContextProvider";
-import { useContext } from "react";
+import { useContext, useMemo } from "react";
+import dynamic from "next/dynamic";
 
 export default function ProductPage() {
+  const MyAwesomeMap = useMemo(
+    () =>
+      dynamic(() => import("../map-block/MapBlock"), {
+        loading: () => <p>A map is loading</p>,
+        ssr: false,
+      }),
+    []
+  );
   const { houseData } = useContext(AppContext);
   if (!houseData) return;
 
@@ -19,28 +26,29 @@ export default function ProductPage() {
       <Grid>
         <Grid.Col span={{ base: 12, md: 8 }}>
           <Group gap="lg">
-            <section id="pictures">
+            <div id="pictures">
               <ProductCarousel images={houseData?.mediaPhotos} />
-            </section>
-            <section id="summary">
+            </div>
+            <div id="summary">
               <ProductSummary />
-            </section>
-            <section id="description">
+            </div>
+            <div id="description">
               <ProductDescription description={houseData?.description} />
-            </section>
-            <section id="features">
-              <ProductFeatures />
-            </section>
-            <section id="map">
-              <MapBlock />
-            </section>
-            <section id="mortgage">
+            </div>
+            <div id="features">
+              <ProductFeatures description={houseData?.description} />
+            </div>
+            <div id="map">
+              <Divider my="xs" />
+              <MyAwesomeMap coordinates={houseData?.mapCoordinates} />
+            </div>
+            <div id="mortgage">
               <MortgageBlock />
-            </section>
+            </div>
           </Group>
         </Grid.Col>
         <Grid.Col span={{ base: 12, md: 4 }}>
-          <AgentCardBlock />
+          <AgentCardBlock realtor={houseData?.realtor} />
         </Grid.Col>
       </Grid>
     </Container>

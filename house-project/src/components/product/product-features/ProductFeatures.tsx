@@ -1,23 +1,75 @@
-import { Text, Button } from "@mantine/core";
-import { useState } from "react";
-// import { useHouseContext } from "../pages/index";
+import { Button, Container, Title, useMantineColorScheme } from "@mantine/core";
+import { useEffect, useRef, useState } from "react";
+import ReactMarkdown from "react-markdown";
+import styles from "./styles.module.css";
 
-export const ProductFeatures = () => {
-  // const { houseData } = useContext(HouseContext);
-  const [expanded, setExpanded] = useState(false);
+interface ProductDescriptionProps {
+  description: string;
+}
 
-  // if (!houseData) return null;
+export const ProductFeatures = ({ description }: ProductDescriptionProps) => {
+  const textRef = useRef<HTMLDivElement>(null);
+  const [isTruncated, setIsTruncated] = useState(true);
+  const [isOverflowing, setIsOverflowing] = useState(false);
+  const [lineHeight, setLineHeight] = useState<number>(0);
+  const { colorScheme } = useMantineColorScheme();
 
-  // const description = expanded
-  //   ? houseData.description
-  //   : houseData.description.substring(0, 255);
+  // count the number of lines and handle the showMore button logic
+  useEffect(() => {
+    const element = textRef.current;
+    if (element) {
+      const computedStyle = window.getComputedStyle(element);
+      const calculatedLineHeight = parseFloat(computedStyle.lineHeight);
+      setLineHeight(calculatedLineHeight);
+      const numberOfLines = element.clientHeight / calculatedLineHeight;
+
+      if (numberOfLines > 10) {
+        setIsOverflowing(true);
+      }
+    }
+  }, [description]);
+
+  const toggleTruncate = () => {
+    setIsTruncated(!isTruncated);
+  };
+  if (!description) return;
+
+  // Renders the right class based on the theme of the page
+  const fadeOutClassName = (): string => {
+    if (isTruncated && isOverflowing) {
+      return colorScheme === "dark"
+        ? styles.fade_out_dark
+        : styles.fade_out_light;
+    }
+    return "";
+  };
 
   return (
-    <>
-      {/* <Text>{description}</Text> */}
-      <Button onClick={() => setExpanded(!expanded)} mt="sm">
-        {expanded ? "Show Less" : "Show More"}
-      </Button>
-    </>
+    <Container size="xl">
+      <Title order={2}>Omschrijving</Title>
+      <div>
+        <div
+          ref={textRef}
+          className={fadeOutClassName()}
+          style={{
+            maxHeight:
+              isTruncated && isOverflowing ? `${lineHeight * 10}px` : "none",
+            overflow: "hidden",
+          }}
+        >
+          <ReactMarkdown>{description}</ReactMarkdown>
+        </div>
+        {isOverflowing && (
+          <Button
+            variant="subtle"
+            fullWidth
+            className={styles.button}
+            onClick={toggleTruncate}
+          >
+            {isTruncated ? "Show More" : "Show Less"}
+          </Button>
+        )}
+      </div>
+    </Container>
   );
 };
