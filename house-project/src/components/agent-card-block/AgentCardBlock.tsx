@@ -53,7 +53,6 @@ export const AgentCardBlock = ({ realtor }: AgentCardBlockProps) => {
       )}
       <DatePickerInput
         mt="md"
-        dropdownType="modal"
         clearable
         leftSection={
           <IconCalendar

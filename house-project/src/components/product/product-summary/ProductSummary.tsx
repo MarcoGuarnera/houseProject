@@ -25,7 +25,7 @@ import { handleScrollToSection } from "@/utiles/handleScrollToSection";
 
 export const ProductSummary = () => {
   const { houseData } = useContext(AppContext);
-  const isMobile = useMediaQuery("(max-width: 1000px)");
+  const isMobile = useMediaQuery("(max-width: 768px)");
   const [isSticky, setIsSticky] = useState(false);
 
   useEffect(() => {
@@ -140,10 +140,12 @@ export const ProductSummary = () => {
       </Card>
       {isSticky && (
         <div className={isMobile ? styles.bottomNavBar : styles.stickyBar}>
-          <div>
-            <Title order={3}>{houseData.address}</Title>
-            <Text fw={500}>€ {calculatePrice()}</Text>
-          </div>
+          {!isMobile && (
+            <div>
+              <Title order={3}>{houseData.address}</Title>
+              <Text fw={500}>€ {calculatePrice()}</Text>
+            </div>
+          )}
           <Group
             gap={0}
             className={styles.links}

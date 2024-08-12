@@ -1,12 +1,13 @@
 // components/Header.tsx
 import { useState } from "react";
 import { Group, Anchor, Container, Box, Image } from "@mantine/core";
-import { ColorSchemeToggle } from "../ColorSchemeToggle";
 import Link from "next/link";
+import { useMediaQuery } from "@mantine/hooks";
 import styles from "./styles.module.css";
 
 export const Header = () => {
   const [active, setActive] = useState(0);
+  const isMobile = useMediaQuery("(max-width: 425px)");
   const logo = {
     url: "/logo.svg",
     description: "logo",
@@ -50,12 +51,13 @@ export const Header = () => {
             className={styles.logo}
           />
         </Link>
-        {/* <ColorSchemeToggle></ColorSchemeToggle> */}
-        <Box className={styles.links}>
-          <Group gap={0} justify="flex-end" className={styles.mainLinks}>
-            {mainItems}
-          </Group>
-        </Box>
+        {!isMobile && (
+          <Box className={styles.links}>
+            <Group gap={0} justify="flex-end" className={styles.mainLinks}>
+              {mainItems}
+            </Group>
+          </Box>
+        )}
       </Container>
     </header>
   );
