@@ -40,9 +40,9 @@ export default function ProductPage() {
             <div className={styles.container} id="features">
               <Divider my="xs" />
               <ProductFeatures />
+              <Divider my="xs" />
             </div>
             <div id="map">
-              <Divider my="xs" />
               <MyAwesomeMap coordinates={houseData?.mapCoordinates} />
             </div>
             {!!houseData.price.Koopprijs && (
