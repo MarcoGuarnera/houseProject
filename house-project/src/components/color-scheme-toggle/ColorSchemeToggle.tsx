@@ -1,6 +1,5 @@
 import {
   ActionIcon,
-  Button,
   Group,
   useComputedColorScheme,
   useMantineColorScheme,

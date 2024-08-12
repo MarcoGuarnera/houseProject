@@ -1,11 +1,9 @@
 import { Button, Container, Title, useMantineColorScheme } from "@mantine/core";
 import { useEffect, useRef, useState } from "react";
+// to render the markdown text
 import ReactMarkdown from "react-markdown";
+import { ProductDescriptionProps } from "./types";
 import styles from "./styles.module.css";
-
-interface ProductDescriptionProps {
-  description: string;
-}
 
 export const ProductDescription = ({
   description,
@@ -31,10 +29,11 @@ export const ProductDescription = ({
     }
   }, [description]);
 
-  const toggleTruncate = () => {
+  if (!description) return;
+
+  const toggleTruncateText = () => {
     setIsTruncated(!isTruncated);
   };
-  if (!description) return;
 
   // Renders the right class based on the theme of the page
   const fadeOutClassName = (): string => {
@@ -66,7 +65,7 @@ export const ProductDescription = ({
             variant="subtle"
             fullWidth
             className={styles.button}
-            onClick={toggleTruncate}
+            onClick={toggleTruncateText}
           >
             {isTruncated ? "Show More" : "Show Less"}
           </Button>

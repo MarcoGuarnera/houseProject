@@ -7,7 +7,6 @@ import {
   Divider,
   Title,
   ThemeIcon,
-  Container,
 } from "@mantine/core";
 import {
   IconRuler,
@@ -28,6 +27,7 @@ export const ProductSummary = () => {
   const isMobile = useMediaQuery("(max-width: 768px)");
   const [isSticky, setIsSticky] = useState(false);
 
+  // handle the sticky top bar calculation based if the summary his still visibile or not
   useEffect(() => {
     const handleScroll = () => {
       const summaryElement = document.getElementById("product-summary");

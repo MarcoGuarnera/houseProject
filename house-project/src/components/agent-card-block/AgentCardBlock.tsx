@@ -1,16 +1,9 @@
 import { Card, Button, TextInput, Textarea, Title, rem } from "@mantine/core";
-import { useState } from "react";
-import styles from "./styles.module.css";
-import { IconCalendar, IconPhone } from "@tabler/icons-react";
 import { DatePickerInput } from "@mantine/dates";
-
-interface AgentCardBlockProps {
-  realtor: {
-    name: string;
-    id: number;
-    phone: string;
-  };
-}
+import { IconCalendar, IconPhone } from "@tabler/icons-react";
+import { useState } from "react";
+import { AgentCardBlockProps } from "./types";
+import styles from "./styles.module.css";
 
 export const AgentCardBlock = ({ realtor }: AgentCardBlockProps) => {
   const [formVisible, setFormVisible] = useState(false);

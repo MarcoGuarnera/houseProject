@@ -1,14 +1,11 @@
 import { Card, Grid, Image, Modal } from "@mantine/core";
 import { Carousel } from "@mantine/carousel";
 import { useContext, useEffect, useState } from "react";
-import styles from "./styles.module.css";
 import { useMediaQuery } from "@mantine/hooks";
 import { ModalContext } from "@/providers/ModalContexProvider";
 import { useRouter } from "next/router";
-
-interface ProductCarouselProps {
-  images: string[];
-}
+import { ProductCarouselProps } from "./types";
+import styles from "./styles.module.css";
 
 export const ProductCarousel = ({ images }: ProductCarouselProps) => {
   const { modalOpened, setModalOpened } = useContext(ModalContext);

@@ -1,16 +1,17 @@
 import { Grid, Container, Group, Divider } from "@mantine/core";
-import { ProductCarousel } from "./product-carousel/ProductCarousel";
-import MortgageBlock from "../mortgage-block/MortgageBlock";
-import { AgentCardBlock } from "../agent-card-block/AgentCardBlock";
-import { ProductSummary } from "./product-summary/ProductSummary";
-import { ProductDescription } from "./product-description/ProductDescription";
-import { ProductFeatures } from "./product-features/ProductFeatures";
-import { AppContext } from "@/providers/AppContextProvider";
 import { useContext, useMemo } from "react";
 import dynamic from "next/dynamic";
+import { AppContext } from "@/providers/AppContextProvider";
+import { ProductCarousel } from "./product-carousel";
+import { ProductSummary } from "./product-summary";
+import { ProductDescription } from "./product-description";
+import { ProductFeatures } from "./product-features";
+import { AgentCardBlock } from "../agent-card-block";
+import MortgageBlock from "../mortgage-block/MortgageBlock";
 import styles from "./styles.module.css";
 
 export default function ProductPage() {
+  // dynamic import because the library i used for the map doesn't support ssr
   const MyAwesomeMap = useMemo(
     () =>
       dynamic(() => import("../map-block/MapBlock"), {

@@ -1,4 +1,3 @@
-// pages/404.tsx
 import { Center, Text, Button } from "@mantine/core";
 import { useRouter } from "next/router";
 

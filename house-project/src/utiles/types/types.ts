@@ -1,40 +1,40 @@
 export interface HouseProduct {
-  AangebodenSinds: string; //TODO: DATA PUBBLICAZIONE
+  AangebodenSinds: string;
   AangebodenSindsTekst: string;
-  AantalBadkamers: number; //TODO: NUMERO BAGNI
-  AantalKamers: number; //TODO: NUMERO CAMERE
-  AantalSlaapkamers: number; //TODO: NUMERO CAMERE DA LETTO
-  AantalWoonlagen: string; //TODO: NUMERO PIANI
+  AantalBadkamers: number;
+  AantalKamers: number;
+  AantalSlaapkamers: number;
+  AantalWoonlagen: string;
   Aanvaarding: string;
-  Adres: string; //TODO: ADDRESS
+  Adres: string;
   AfgekochtDatum: any;
   BalkonDakterras: any;
   BedrijfsruimteCombinatieObject: any;
   BezichtingDagdelen: BezichtingDagdelen[];
   BezichtingDagen: BezichtingDagen[];
-  BijdrageVVE: any; //TODO: contributo vve
+  BijdrageVVE: any;
   Bijzonderheden: any;
-  Bouwjaar: string; //TODO: ANNO COSTRUZIONE
+  Bouwjaar: string;
   Bouwvorm: string;
   BronCode: string;
   ContactpersoonEmail: any;
   ContactpersoonTelefoon: any;
-  Cv: string; //TODO: info caldaia
+  Cv: string;
   DatumOndertekeningAkte: any;
   Deeplink: any;
-  DetailInfo: DetailInfo; //TODO: Tagline importante
+  DetailInfo: DetailInfo;
   EigendomsSituatie: any;
-  Energielabel: Energielabel; //TODO: importante
+  Energielabel: Energielabel;
   ErfpachtBedrag: any;
   Garage: any;
   GarageIsolatie: any;
   GarageVoorzieningen: any;
   GelegenOp: any;
   GewijzigdDatum: string;
-  HoofdFoto: string; //TODO: foto principale
+  HoofdFoto: string;
   HoofdFotoSecure: string;
   HoofdTuinType: string;
-  Id: number; //TODO: foto principale
+  Id: number;
   IndBasisPlaatsing: boolean;
   IndFotos: boolean;
   IndIpix: boolean;
@@ -45,35 +45,35 @@ export interface HouseProduct {
   IndVeilingProduct: boolean;
   IndVideo: boolean;
   Inhoud: number;
-  InternalId: string; //TODO: importante
+  InternalId: string;
   IsIngetrokken: boolean;
-  IsVerhuurd: boolean; //TODO: è affittato
-  IsVerkocht: boolean; //TODO: è venduto
-  Isolatie: string; //TODO: isolazione
+  IsVerhuurd: boolean;
+  IsVerkocht: boolean;
+  Isolatie: string;
   Kenmerken: Kenmerken[];
-  KenmerkenKort: KenmerkenKort; //TODO: importante summary
+  KenmerkenKort: KenmerkenKort;
   KenmerkenTitel: any;
-  Ligging: string; //TODO: posizione
+  Ligging: string;
   MLIUrl: string;
-  Makelaar: string; //TODO: makelaar
-  MakelaarId: number; //TODO: makelaar
-  MakelaarTelefoon: string; //TODO: makelaar
+  Makelaar: string;
+  MakelaarId: number;
+  MakelaarTelefoon: string;
   MedeAanbieders: any[];
-  Media: Medum[]; //TODO: Foto, creare mapper per ricavare array con solo url da ogni elemento Media > MediaItems > dove Category === 7 predere .UrlSecure
+  Media: Medum[];
   "Media-Foto": string[];
   MobileURL: string;
   ObjectType: string;
   ObjectTypeMetVoorvoegsel: string;
   OpenHuizen: any[];
-  PerceelOppervlakte: number; //TODO: area terreno
+  PerceelOppervlakte: number;
   PermanenteBewoning: string;
-  Plaats: string; //TODO: cittá
-  Postcode: string; //TODO: postcode
-  Prijs: Prijs; //TODO: prezzo, prendere Koopprijs e KoopAbbreviation
+  Plaats: string;
+  Postcode: string;
+  Prijs: Prijs;
   PrijsGeformatteerd: string;
   Project: any;
   ProjectNaam: any;
-  PublicatieDatum: string; //TODO: DATA PUBBLICAZIONE
+  PublicatieDatum: string;
   PublicatieStatus: number;
   SchuurBerging: string;
   SchuurBergingIsolatie: any;
@@ -83,30 +83,30 @@ export interface HouseProduct {
   SoortAanbod: number;
   SoortDak: string;
   SoortGarage: string;
-  SoortParkeergelegenheid: string; //TODO: tipo parcheggio
+  SoortParkeergelegenheid: string;
   SoortPlaatsing: number;
   SoortWoning: string;
   Titels: Titel[];
-  ToonBezichtigingMaken: boolean; //TODO: visualizzare calendario viweing
-  ToonBrochureAanvraag: boolean; //TODO: visualizzare brochure download
+  ToonBezichtigingMaken: boolean;
+  ToonBrochureAanvraag: boolean;
   ToonMakelaarWoningaanbod: boolean;
   ToonReageren: boolean;
   TransactieAfmeldDatum: any;
   TransactieMakelaarId: any;
   TransactieMakelaarNaam: any;
-  TuinLigging: string; //TODO: posizione giardino
+  TuinLigging: string;
   TypeProject: number;
   URL: string;
   Veiling: Veiling;
-  VerkoopStatus: string; //TODO:  status abitazione (venduta, in vendita ecc)
-  Verwarming: string; //TODO: tipo riscaldamento
+  VerkoopStatus: string;
+  Verwarming: string;
   Video: any;
-  VolledigeOmschrijving: string; //TODO: descrizione
+  VolledigeOmschrijving: string;
   Voorzieningen: string;
-  WGS84_X: number; //TODO: coordinate mappe
-  WGS84_Y: number; //TODO: coordinate mappe
+  WGS84_X: number;
+  WGS84_Y: number;
   WarmWater: string;
-  WoonOppervlakte: number; ///TODO: metri quadri zona giorno
+  WoonOppervlakte: number;
   EersteHuurPrijs: any;
   EersteHuurPrijsLang: any;
   EersteKoopPrijs: any;

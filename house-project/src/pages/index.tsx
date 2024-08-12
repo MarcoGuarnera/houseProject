@@ -27,17 +27,30 @@ export default function HomePage({
 export const getServerSideProps: GetServerSideProps = async () => {
   try {
     const response = await fetch(
-      "http://partnerapi.funda.nl/feeds/Aanbod.svc/json/detail/76666a29898f491480386d966b75f949/koop/b122557e-1be2-4271-85e3-eca2ce1038f9/"
+      `http://partnerapi.funda.nl/feeds/Aanbod.svc/json/detail/${process.env.NEXT_PUBLIC_FUNDA_API_KEY}/koop/${process.env.NEXT_PUBLIC_FUNDA_API_ID}/`
     );
-    if (response.status === 404) {
-      return {
-        notFound: true,
-      };
+
+    if (!response.ok) {
+      // Handle HTTP errors
+      if (response.status === 404) {
+        return {
+          notFound: true, // Automatically renders the 404 page
+        };
+      } else {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
     }
+
     const initialData: HouseProduct = await response.json();
     const mappedInitialData = mapHouseProduct(initialData);
     return { props: { mappedInitialData } };
   } catch (error) {
-    return { props: { initialData: null } };
+    console.error("Error fetching house data:", error);
+    return {
+      redirect: {
+        destination: "/500", // Redirects to a custom 500 error page
+        permanent: false,
+      },
+    };
   }
 };

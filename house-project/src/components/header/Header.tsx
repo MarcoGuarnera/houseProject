@@ -1,8 +1,9 @@
 // components/Header.tsx
-import { useState } from "react";
 import { Group, Anchor, Container, Box, Image } from "@mantine/core";
-import Link from "next/link";
 import { useMediaQuery } from "@mantine/hooks";
+import { useState } from "react";
+import Link from "next/link";
+import { handleScrollToSection } from "@/utiles/handleScrollToSection";
 import styles from "./styles.module.css";
 
 export const Header = () => {
@@ -21,11 +22,6 @@ export const Header = () => {
     { link: "map", label: "Map" },
     { link: "mortgage", label: "Mortgage" },
   ];
-
-  const handleScrollToSection = (sectionId: string) => {
-    if (!sectionId) return;
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
-  };
 
   const mainItems = mainLinks.map((item, index) => (
     <Anchor

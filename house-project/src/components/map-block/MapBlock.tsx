@@ -6,14 +6,8 @@ import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility
 import "leaflet-defaulticon-compatibility";
 import { MapContainer, Marker, TileLayer } from "react-leaflet";
 import { Container } from "@mantine/core";
+import { MapBlockProps } from "./types";
 import styles from "./styles.module.css";
-
-interface MapBlockProps {
-  coordinates: {
-    lat: number;
-    lng: number;
-  };
-}
 
 export default function ({ coordinates }: MapBlockProps) {
   if (!coordinates) return;
