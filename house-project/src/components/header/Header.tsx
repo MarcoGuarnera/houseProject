@@ -14,6 +14,9 @@ export const Header = () => {
     description: "logo",
   };
 
+  // in an ideal world these data come from an api/map calculation to manage which tab to show
+  // (ex. mortgage shouldn't be visualized on for rent properties )
+
   const mainLinks = [
     { link: "pictures", label: "Pictures" },
     { link: "summary", label: "Summary" },

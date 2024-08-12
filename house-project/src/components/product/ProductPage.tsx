@@ -7,7 +7,7 @@ import { ProductSummary } from "./product-summary";
 import { ProductDescription } from "./product-description";
 import { ProductFeatures } from "./product-features";
 import { AgentCardBlock } from "../agent-card-block";
-import MortgageBlock from "../mortgage-block/MortgageBlock";
+import { MortgageBlock } from "../mortgage-block/MortgageBlock";
 import styles from "./styles.module.css";
 
 export default function ProductPage() {
@@ -45,9 +45,13 @@ export default function ProductPage() {
               <Divider my="xs" />
               <MyAwesomeMap coordinates={houseData?.mapCoordinates} />
             </div>
-            <div id="mortgage">
-              <MortgageBlock />
-            </div>
+            {!!houseData.price.Koopprijs && (
+              <div id="mortgage">
+                <Divider my="xs" />
+
+                <MortgageBlock price={houseData.price.Koopprijs} />
+              </div>
+            )}
           </Group>
         </Grid.Col>
         <Grid.Col span={{ base: 12, md: 4 }}>

@@ -105,11 +105,13 @@ export const ProductCarousel = ({ images }: ProductCarouselProps) => {
       <Modal
         opened={modalOpened}
         onClose={handleCloseModal}
-        size="1000px"
+        size="100%"
         centered
+        fullScreen={isNotMobile}
         withCloseButton
+        transitionProps={{ transition: "fade", duration: 200 }}
       >
-        {createCarousel(slides(600))}
+        {createCarousel(slides(880))}
       </Modal>
     </Card>
   );
