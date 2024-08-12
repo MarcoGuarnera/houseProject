@@ -25,23 +25,38 @@ I also took the liberty of mapping the API response to make the work a bit easie
 
 What I tried to focus on: structuring the project in a way that could be easily scalable and maintainable.
 And to give a taste of better user interaction:
+
       - Form to write to makelaars directly in the page and always in the user's field of vision.
+      
       - Visualization of the schedule calendar without leaving the page.
+      
       - Easy navigation between tabs.
+      
       - More comprehensive and easy to read property feature.
 
+      
+
 I left very few comments, only where I thought it was necessary to explain more than the variable/function names already said.
+
 
 ## What I wanted to do but didn't have time
 
 Properly handle Carousel and how images are displayed in the modal. Since I mapped the API to simplify the implementation, I left out the different resolution types I got from the API and only rendered one.
+
 Make the map more responsive.
+
 Implement: i18n, unit test
+
 Properly handle the Makelaar form and make the "plan visit" calendar only show the available date.
+
 Show the rest of the property features when the appropriate button is pressed.
+
 Make the Mortgage component reactive and usable instead of just a mocked version.
+
 Make it bug-free.
-Create a Vue3 version of the 
+
+Create a Vue3 version of the project.
+
 Deploy it.
 
 ## Known Problems:
