@@ -1,4 +1,3 @@
-// components/Footer.tsx
 import { Container, Group, ActionIcon, rem } from "@mantine/core";
 import {
   IconBrandTwitter,

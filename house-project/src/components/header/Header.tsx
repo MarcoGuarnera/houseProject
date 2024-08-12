@@ -1,4 +1,3 @@
-// components/Header.tsx
 import { Group, Anchor, Container, Box, Image } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { useState } from "react";

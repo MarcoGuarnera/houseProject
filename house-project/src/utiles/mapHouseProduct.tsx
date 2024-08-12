@@ -2,47 +2,47 @@ import { HouseProduct, MappedHouseProduct, Medum } from "./types/types";
 
 export const mapHouseProduct = (house: HouseProduct): MappedHouseProduct => {
   return {
-    publicationDate: house.AangebodenSinds, // DATA PUBBLICAZIONE
-    bathrooms: house.AantalBadkamers, // NUMERO BAGNI
-    rooms: house.AantalKamers, // NUMERO CAMERE
-    bedrooms: house.AantalSlaapkamers, // NUMERO CAMERE DA LETTO
-    floors: house.AantalWoonlagen, // NUMERO PIANI
-    address: house.Adres, // ADDRESS
-    vveContribution: house.BijdrageVVE, // contributo vve
-    constructionYear: house.Bouwjaar, // ANNO COSTRUZIONE
-    boilerInfo: house.Cv, // info caldaia
-    tagline: house.DetailInfo, // Tagline importante
-    energyLabel: house.Energielabel, // importante
-    mainPhoto: house.HoofdFoto, // foto principale
-    id: house.Id, // id
-    rented: house.IsVerhuurd, // è affittato
-    sold: house.IsVerkocht, // è venduto
-    insulation: house.Isolatie, // isolazione
-    summary: house.KenmerkenKort, // importante summary
-    location: house.Ligging, // posizione
+    publicationDate: house.AangebodenSinds,
+    bathrooms: house.AantalBadkamers,
+    rooms: house.AantalKamers,
+    bedrooms: house.AantalSlaapkamers,
+    floors: house.AantalWoonlagen,
+    address: house.Adres,
+    vveContribution: house.BijdrageVVE,
+    constructionYear: house.Bouwjaar,
+    boilerInfo: house.Cv,
+    tagline: house.DetailInfo,
+    energyLabel: house.Energielabel,
+    mainPhoto: house.HoofdFoto,
+    id: house.Id,
+    rented: house.IsVerhuurd,
+    sold: house.IsVerkocht,
+    insulation: house.Isolatie,
+    summary: house.KenmerkenKort,
+    location: house.Ligging,
     objectType: house.ObjectType,
     realtor: {
       name: house.Makelaar,
       id: house.MakelaarId,
       phone: house.MakelaarTelefoon,
-    }, // makelaar
-    mediaPhotos: getSecureMediaUrls(house.Media), // Foto, creating an array with only the URLs
-    landArea: house.PerceelOppervlakte, // area terreno
-    city: house.Plaats, // cittá
-    postcode: house.Postcode, // postcode
-    price: house.Prijs, // prezzo
-    saleStatus: house.VerkoopStatus, // status abitazione (venduta, in vendita ecc)
-    heating: house.Verwarming, // tipo riscaldamento
-    description: house.VolledigeOmschrijving, // descrizione
-    gardenLocation: house.TuinLigging, // posizione giardino
+    },
+    mediaPhotos: getSecureMediaUrls(house.Media),
+    landArea: house.PerceelOppervlakte,
+    city: house.Plaats,
+    postcode: house.Postcode,
+    price: house.Prijs,
+    saleStatus: house.VerkoopStatus,
+    heating: house.Verwarming,
+    description: house.VolledigeOmschrijving,
+    gardenLocation: house.TuinLigging,
     mapCoordinates: {
-      lat: house.WGS84_Y, // latitudine
-      lng: house.WGS84_X, // longitudine
-    }, // coordinate mappe
-    livingArea: house.WoonOppervlakte, // metri quadri zona giorno
-    parkingType: house.SoortParkeergelegenheid, // tipo parcheggio
-    viewingCalendar: house.ToonBezichtigingMaken, // visualizzare calendario viewing
-    brochureDownload: house.ToonBrochureAanvraag, // visualizzare brochure download
+      lat: house.WGS84_Y,
+      lng: house.WGS84_X,
+    },
+    livingArea: house.WoonOppervlakte,
+    parkingType: house.SoortParkeergelegenheid,
+    viewingCalendar: house.ToonBezichtigingMaken,
+    brochureDownload: house.ToonBrochureAanvraag,
   };
 };
 

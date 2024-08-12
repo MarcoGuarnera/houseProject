@@ -16,25 +16,35 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## What I did
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+I had to make assumptions about how some attributes in the API worked, so I didn't consider every possibility that could come from the API and therefore I didn't cover every possibility to show which data depended on what.
+I didn't handle every case and error that could occur properly. Like in the photo carousel component I didn't insert dummy images in case I didn't get anything from the API.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+I also took the liberty of mapping the API response to make the work a bit easier since I don't have a complete knowledge of what is important and what isn't.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+What I tried to focus on: structuring the project in a way that could be easily scalable and maintainable.
+And to give a taste of better user interaction:
+      - Form to write to makelaars directly in the page and always in the user's field of vision.
+      - Visualization of the schedule calendar without leaving the page.
+      - Easy navigation between tabs.
+      - More comprehensive and easy to read property feature.
 
-## Learn More
+I left very few comments, only where I thought it was necessary to explain more than the variable/function names already said.
 
-To learn more about Next.js, take a look at the following resources:
+## What I wanted to do but didn't have time
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Properly handle Carousel and how images are displayed in the modal. Since I mapped the API to simplify the implementation, I left out the different resolution types I got from the API and only rendered one.
+Make the map more responsive.
+Implement: i18n, unit test
+Properly handle the Makelaar form and make the "plan visit" calendar only show the available date.
+Show the rest of the property features when the appropriate button is pressed.
+Make the Mortgage component reactive and usable instead of just a mocked version.
+Make it bug-free.
+Create a Vue3 version of the project.ails.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Known Problems:
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+A lot of components are just mock up and not fully implemented.
+Bunch of bugs with the carousel and how the images are shown.
+Map not responsive enough.

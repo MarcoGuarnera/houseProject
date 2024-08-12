@@ -247,14 +247,14 @@ export interface MappedHouseProduct {
   vveContribution: any;
   constructionYear: string;
   boilerInfo: string;
-  tagline: DetailInfo; // Assuming DetailInfo is already defined
-  energyLabel: Energielabel; // Assuming Energielabel is already defined
+  tagline: DetailInfo;
+  energyLabel: Energielabel;
   mainPhoto: string;
   id: number;
   rented: boolean;
   sold: boolean;
   insulation: string;
-  summary: KenmerkenKort; // Assuming KenmerkenKort is already defined
+  summary: KenmerkenKort;
   location: string;
   realtor: {
     name: string;
@@ -265,7 +265,7 @@ export interface MappedHouseProduct {
   landArea: number;
   city: string;
   postcode: string;
-  price: Prijs; // Assuming Prijs is already defined
+  price: Prijs;
   saleStatus: string;
   heating: string;
   description: string;
