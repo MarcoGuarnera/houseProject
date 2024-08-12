@@ -42,9 +42,12 @@ Show the rest of the property features when the appropriate button is pressed.
 Make the Mortgage component reactive and usable instead of just a mocked version.
 Make it bug-free.
 Create a Vue3 version of the project.ails.
+Deploy it.
 
 ## Known Problems:
 
 A lot of components are just mock up and not fully implemented.
+
 Bunch of bugs with the carousel and how the images are shown.
+
 Map not responsive enough.
