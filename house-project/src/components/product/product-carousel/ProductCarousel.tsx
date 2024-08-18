@@ -1,4 +1,4 @@
-import { Card, Grid, Image, Modal } from "@mantine/core";
+import { Card, Grid, Group, Image, Modal } from "@mantine/core";
 import { Carousel } from "@mantine/carousel";
 import { useContext, useEffect, useState } from "react";
 import { useMediaQuery } from "@mantine/hooks";
@@ -49,7 +49,12 @@ export const ProductCarousel = ({ images }: ProductCarouselProps) => {
   const slides = (px: any) =>
     images?.map((image, index) => (
       <Carousel.Slide key={image} onClick={() => handleImageClick(index)}>
-        <Image src={image} height={px} alt={`House image ${index + 1}`} />
+        <Image
+          src={image}
+          height={px}
+          alt={`House image ${index + 1}`}
+          className={styles.image}
+        />
       </Carousel.Slide>
     ));
 
@@ -76,28 +81,30 @@ export const ProductCarousel = ({ images }: ProductCarouselProps) => {
           {createCarousel(slides(380))}
         </Grid.Col>
         {isNotMobile && (
-          <Grid.Col span={4}>
-            <Grid>
-              {images?.slice(1, 3).map((image, index, arr) => (
-                <Grid.Col
-                  span={12}
-                  key={image}
-                  className={
-                    index === arr.length - 1 ? styles.imageOverlayContainer : ""
-                  }
-                  onClick={() => handleImageClick(index + 1)}
-                >
-                  <Image src={image} alt={`House image ${index + 1}`} />
-                  {index === arr.length - 1 && (
-                    <div className={styles.imageOverlay}>
-                      <span className={styles.overlayText}>
-                        +{images.length - 2} photos
-                      </span>
-                    </div>
-                  )}
-                </Grid.Col>
-              ))}
-            </Grid>
+          <Grid.Col span={4} className={styles.grid}>
+            {images?.slice(1, 3).map((image, index, arr) => (
+              <Group
+                classNames={{
+                  root:
+                    index === arr.length - 1
+                      ? styles.imageOverlayContainer
+                      : "",
+                }}
+                className={styles.wrapperOverlay}
+                key={image}
+                justify="center"
+                onClick={() => handleImageClick(index + 1)}
+              >
+                <Image src={image} alt={`House image ${index + 1}`} />
+                {index === arr.length - 1 && (
+                  <div className={styles.imageOverlay}>
+                    <span className={styles.overlayText}>
+                      +{images.length - 2} photos
+                    </span>
+                  </div>
+                )}
+              </Group>
+            ))}
           </Grid.Col>
         )}
       </Grid>
