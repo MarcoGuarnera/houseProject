@@ -27,7 +27,7 @@ export default function HomePage({
 export const getServerSideProps: GetServerSideProps = async () => {
   try {
     const response = await fetch(
-      `http://partnerapi.funda.nl/feeds/Aanbod.svc/json/detail/${process.env.NEXT_PUBLIC_FUNDA_API_KEY}/koop/${process.env.NEXT_PUBLIC_FUNDA_API_ID}/`
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/mockedMappedData`
     );
 
     if (!response.ok) {
@@ -41,8 +41,11 @@ export const getServerSideProps: GetServerSideProps = async () => {
       }
     }
 
-    const initialData: HouseProduct = await response.json();
-    const mappedInitialData = mapHouseProduct(initialData);
+    // Old behavior with true data
+    // const initialData: HouseProduct = await response.json();
+    // const mappedInitialData = mapHouseProduct(initialData);
+
+    const mappedInitialData: MappedHouseProduct = await response.json();
     return { props: { mappedInitialData } };
   } catch (error) {
     console.error("Error fetching house data:", error);
