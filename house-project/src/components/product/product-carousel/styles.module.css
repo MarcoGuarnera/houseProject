@@ -21,13 +21,28 @@
   }
 }
 
+.grid {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
 .imageOverlayContainer {
   position: relative;
   cursor: pointer;
+  margin-top: 15px;
 }
 
 .slide {
   height: 600px;
+}
+
+.image {
+  object-fit: contain;
+}
+
+.wrapperOverlay {
+  position: relative;
 }
 
 .imageOverlay {
