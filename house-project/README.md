@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-Run npm install (I pushed the .env file -even to is a bad practice, so it won't be necessary to create one)
+Run npm install (I pushed the .env file -even tho is a bad practice, so it won't be necessary to create one)
 
 Run the development server:
 
