@@ -2,7 +2,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+Run npm install (I pushed the .env file -even to is a bad practice, so it won't be necessary to create one)
+
+Run the development server:
 
 ```bash
 npm run dev
@@ -39,7 +41,7 @@ And to give a taste of better user interaction:
 I left very few comments, only where I thought it was necessary to explain more than the variable/function names already said.
 
 
-## What I wanted to do but didn't have time
+## What I wanted to do but wanted to
 
 Properly handle Carousel and how images are displayed in the modal. Since I mapped the API to simplify the implementation, I left out the different resolution types I got from the API and only rendered one.
 
@@ -54,8 +56,6 @@ Show the rest of the property features when the appropriate button is pressed.
 Make the Mortgage component reactive and usable instead of just a mocked version.
 
 Make it bug-free.
-
-Create a Vue3 version of the project.
 
 Deploy it.
 
