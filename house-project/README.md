@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-Run npm install (I pushed the .env file -even tho is a bad practice, so it won't be necessary to create one)
+Run npm install (I pushed the .env file -even to is a bad practice, so it won't be necessary to create one)
 
 Run the development server:
 
@@ -41,7 +41,7 @@ And to give a taste of better user interaction:
 I left very few comments, only where I thought it was necessary to explain more than the variable/function names already said.
 
 
-## What I wanted to do but 
+## What I wanted to do but wanted to
 
 Properly handle Carousel and how images are displayed in the modal. Since I mapped the API to simplify the implementation, I left out the different resolution types I got from the API and only rendered one.
 
