@@ -2,6 +2,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+Navigate to the project folder proper.
+
 Run npm install (I pushed the .env file -even to is a bad practice, so it won't be necessary to create one)
 
 Run the development server:
